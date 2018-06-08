@@ -1,0 +1,152 @@
+6.3:
+a.
+Sequential took 42.985334 time units
+OpenMP took 16.063035 time units
+This resulted in a 2.676041x speed-up
+Ending the deblur parallelization test
+
+c. 		not anymore fastest
+Sequential took 14.419495 time units
+OpenMP took 3.762592 time units
+This resulted in a 3.832330x speed-up
+
+Sequential took 13.930776 time units
+OpenMP took 3.663742 time units
+This resulted in a 3.802336x speed-up
+
+(with GPROF=1)
+Sequential took 23.753004 time units
+OpenMP took 6.065070 time units
+This resulted in a 3.916361x speed-up
+
+Sequential took 15.695568 time units
+OpenMP took 4.002711 time units
+This resulted in a 3.921234x speed-up
+Ending the deblur parallelization test
+
+d.
+// tried to switch loop order to zxy -> slower
+
+Sequential took 12.657004 time units
+OpenMP took 5.233778 time units
+This resulted in a 2.418330x speed-up
+
+e.
+// update:
+// code motion for deblur function
+
+// seems to be slower than c? why?
+Sequential took 14.965318 time units
+OpenMP took 5.955801 time units
+This resulted in a 2.512730x speed-up
+
+f. 
+// further code motion from same region in e
+// a bit faster?
+
+Sequential took 16.337083 time units
+OpenMP took 4.940632 time units
+This resulted in a 3.306679x speed-up
+
+(on 02 server)
+Sequential took 21.667398 time units
+OpenMP took 4.879693 time units
+This resulted in a 4.440320x speed-up
+
+g.
+!!!!!! FASTEST SO FAR !!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// fixed loop ordering to be zyx (was changed somehow)
+
+Sequential took 10.053504 time units
+OpenMP took 2.832549 time units
+This resulted in a 3.549278x speed-up
+
+Sequential took 9.973726 time units
+OpenMP took 2.565258 time units
+This resulted in a 3.888001x speed-up
+
+Sequential took 11.005490 time units
+OpenMP took 2.598764 time units
+This resulted in a 4.234894x speed-up
+
+
+h.
+// put one pragma parallel statement in the 2nd for loop (not the big main one)
+// code motion for u[xyzInd] to just u_xyzInd
+
+Sequential took 10.263698 time units
+OpenMP took 3.728545 time units
+This resulted in a 2.752735x speed-up
+
+Sequential took 12.853101 time units
+OpenMP took 3.052507 time units
+This resulted in a 4.210670x speed-up
+
+// after code motion
+Sequential took 11.735445 time units
+OpenMP took 3.366440 time units
+This resulted in a 3.486011x speed-up
+
+
+i.
+// blocked first nested loop
+// used #pragma omp parallel for the 2 inner loops
+
+Sequential took 12.449026 time units
+OpenMP took 2.845099 time units
+This resulted in a 4.375604x speed-up
+
+j.
+ignore j LOL idk what i did
+Sequential took 11.783177 time units
+OpenMP took 3.159985 time units
+This resulted in a 3.728871x speed-up
+
+k.
+// strength redux in first loop
+
+Sequential took 10.441310 time units
+OpenMP took 2.373798 time units
+This resulted in a 4.398567x speed-up
+
+commentout4
+// commented out everything in gaussian blur except ones with nu
+
+Sequential took 10.852742 time units
+OpenMP took 2.050219 time units
+This resulted in a 5.293455x speed-up
+
+Sequential took 9.678324 time units
+OpenMP took 2.247331 time units
+This resulted in a 4.306586x speed-up
+
+Sequential took 11.780472 time units
+OpenMP took 2.049787 time units
+This resulted in a 5.747169x speed-up
+
+
+
+
+6.4
+
+commentout 1
+// some strength redux
+
+Sequential took 10.554744 time units
+OpenMP took 2.252844 time units
+This resulted in a 4.685075x speed-up
+
+Sequential took 9.871519 time units
+OpenMP took 2.237821 time units
+This resulted in a 4.411219x speed-up
+
+comment out 2
+// literally took out all of gaussian blur wtf
+
+Sequential took 10.267779 time units
+OpenMP took 0.749712 time units
+This resulted in a 13.695631x speed-up
+

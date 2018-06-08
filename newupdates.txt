@@ -1,0 +1,884 @@
+updates on new version
+
+on lnxsrv02
+
+6.3g
+passes:
+Sequential took 19.664527 time units
+OpenMP took 3.296776 time units
+This resulted in a 5.964775x speed-up
+
+(on 08)
+Sequential took 12.275813 time units
+OpenMP took 3.441195 time units
+This resulted in a 3.567311x speed-up
+
+
+6.5a
+updates: changed minor indexing to xyzInd + 1 for x + 1 and - 1
+02
+// approx 5.9x speed up
+// consistent
+Sequential took 19.541392 time units
+OpenMP took 3.284744 time units
+This resulted in a 5.949137x speed-up
+
+08
+// approx 3.7-.8x speed up
+// consistent
+Sequential took 10.041431 time units
+OpenMP took 2.638661 time units
+This resulted in a 3.805502x speed-up
+
+6.5b
+updates: more of 6.5 a in more areas
+08
+Sequential took 11.251016 time units
+OpenMP took 2.159112 time units
+This resulted in a 5.210946x speed-up
+
+
+Sequential took 10.056521 time units
+OpenMP took 2.216539 time units
+This resulted in a 4.537038x speed-up
+
+
+02
+Sequential took 19.683211 time units
+OpenMP took 2.772537 time units
+This resulted in a 7.099350x speed-up
+
+Sequential took 19.747406 time units
+OpenMP took 2.769442 time units
+This resulted in a 7.130464x speed-up
+
+
+6.5c
+
+updates: replaced u[xyzInd] as uInd
+
+02
+Sequential took 19.987610 time units
+OpenMP took 2.769021 time units
+This resulted in a 7.218295x speed-up
+
+6.5d
+
+updates: changed indexing
+for x +- 1; +- 1 (same as before)
+for y +- 1; +- xMax
+for z += 1; += xMax * yMax
+
+Sequential took 19.619549 time units
+OpenMP took 2.762851 time units
+This resulted in a 7.101197x speed-up
+
+6.5e
+
+updates:
+fixed all indexing to take advantage of newfound patterns
+
+02
+
+Sequential took 20.257289 time units
+OpenMP took 2.775038 time units
+This resulted in a 7.299824x speed-up
+
+Sequential took 19.963042 time units
+OpenMP took 2.790640 time units
+This resulted in a 7.153571x speed-up
+
+
+
+on 08
+Sequential took 9.666222 time units
+OpenMP took 2.173295 time units
+This resulted in a 4.447727x speed-up
+
+Sequential took 10.401938 time units
+OpenMP took 2.171895 time units
+This resulted in a 4.789338x speed-up
+
+Sequential took 10.574213 time units
+OpenMP took 2.388155 time units
+This resulted in a 4.427775x speed-up
+
+6.5f
+
+updates: leftover indexing that needed to be fixed	
+
+08
+// consistent 4.6x speed up
+// busy server?
+
+Sequential took 10.169575 time units
+OpenMP took 2.175486 time units
+This resulted in a 4.674622x speed-up
+
+Sequential took 10.187212 time units
+OpenMP took 2.174524 time units
+This resulted in a 4.684801x speed-up
+
+Sequential took 10.009898 time units
+OpenMP took 2.172276 time units
+This resulted in a 4.608023x speed-up
+
+
+6.5g
+
+updates: blocked the first loop
+
+08
+Sequential took 9.821586 time units
+OpenMP took 2.169978 time units
+This resulted in a 4.526123x speed-up
+
+Sequential took 10.760832 time units
+OpenMP took 2.177990 time units
+This resulted in a 4.940717x speed-up
+
+
+6.5h
+
+updates: changed it so inner most loop does not have to compute index each time, just adds xMax
+
+08
+Sequential took 11.604325 time units
+OpenMP took 2.419465 time units
+This resulted in a 4.796236x speed-up
+
+Sequential took 10.928397 time units
+OpenMP took 2.184100 time units
+This resulted in a 5.003616x speed-up
+
+Sequential took 10.483309 time units
+OpenMP took 2.181569 time units
+This resulted in a 4.805399x speed-up
+
+
+
+6.7a
+
+updates: 
+tried loop unrolling first block by 4
+removed tiling to test
+
+02
+
+Sequential took 19.949367 time units
+OpenMP took 2.776383 time units
+This resulted in a 7.185380x speed-up
+
+Sequential took 20.063807 time units
+OpenMP took 2.758544 time units
+This resulted in a 7.273332x speed-up
+
+
+6.7b
+updates:
+unrolled by 8 instead of 4
+
+02
+Sequential took 23.606721 time units
+OpenMP took 2.783190 time units
+This resulted in a 8.481894x speed-up
+
+Sequential took 19.457154 time units
+OpenMP took 2.767808 time units
+This resulted in a 7.029806x speed-up
+
+
+6.7c
+updates: 
+unroll by 16
+
+02
+Sequential took 19.529102 time units
+OpenMP took 2.776890 time units
+This resulted in a 7.032724x speed-up
+
+Sequential took 19.967730 time units
+OpenMP took 2.776501 time units
+This resulted in a 7.191689x speed-up
+
+08
+Sequential took 11.083809 time units
+OpenMP took 2.163259 time units
+This resulted in a 5.123662x speed-up
+
+Sequential took 16.764647 time units
+OpenMP took 2.238793 time units
+This resulted in a 7.488252x speed-up
+
+Sequential took 11.375522 time units
+OpenMP took 2.165849 time units
+This resulted in a 5.252223x speed-up
+
+6.7d
+updates:
+added one pragma omp parallel for
+
+not sure if made faster or slower
+i think slower
+
+6.7e
+updates:
+combined first 2 loops
+removed unrolling and pragma
+
+02
+
+Sequential took 19.908184 time units
+OpenMP took 2.763830 time units
+This resulted in a 7.203115x speed-up
+
+Sequential took 19.627917 time units
+OpenMP took 2.761454 time units
+This resulted in a 7.107820x speed-up
+
+08
+Sequential took 11.899478 time units
+OpenMP took 2.342648 time units
+This resulted in a 5.079499x speed-up
+
+
+
+6.7f
+updates:
+added pragma omp parallel for private (x)
+SHIT TON SLOWER WTF (but varies???!?!?!)
+! seems inconsistent !
+
+02
+Sequential took 19.689418 time units
+OpenMP took 4.143939 time units
+This resulted in a 4.751378x speed-up
+
+Sequential took 19.595164 time units
+OpenMP took 2.568275 time units
+This resulted in a 7.629699x speed-up
+
+Sequential took 19.550622 time units
+OpenMP took 2.578342 time units
+This resulted in a 7.582633x speed-up
+
+Sequential took 19.964044 time units
+OpenMP took 6.204670 time units
+This resulted in a 3.217583x speed-up
+
+Sequential took 19.651971 time units
+OpenMP took 2.577915 time units
+This resulted in a 7.623204x speed-up
+
+6.7g
+updates:
+did some loop unrolling (2 statements)
+no pragma
+
+02
+Sequential took 19.715196 time units
+OpenMP took 2.756959 time units
+This resulted in a 7.151066x speed-up
+
+Sequential took 20.951770 time units
+OpenMP took 2.798268 time units
+This resulted in a 7.487407x speed-up
+
+05
+Sequential took 25.640237 time units
+OpenMP took 3.272467 time units
+This resulted in a 7.835140x speed-up
+
+
+6.7h
+updates:
+built on g and unrolled 8 times
+still no pragma
+
+05
+Sequential took 25.469487 time units
+OpenMP took 3.138989 time units
+This resulted in a 8.113914x speed-up
+
+Sequential took 25.580133 time units
+OpenMP took 3.143005 time units
+This resulted in a 8.138750x speed-up
+
+Sequential took 25.379911 time units
+OpenMP took 3.114164 time units
+This resulted in a 8.149831x speed-up
+
+
+6.7i
+updates:
+combined 3rd and 4th loops into first loop
+unrolled 8 times for all 4 loops
+
+05
+Sequential took 25.443581 time units
+OpenMP took 2.624646 time units
+This resulted in a 9.694100x speed-up
+
+Sequential took 25.213391 time units
+OpenMP took 2.628395 time units
+This resulted in a 9.592695x speed-up
+
+Sequential took 25.387686 time units
+OpenMP took 2.625923 time units
+This resulted in a 9.668100x speed-up
+
+08
+Sequential took 11.089413 time units
+OpenMP took 1.786484 time units
+This resulted in a 6.207396x speed-up
+
+Sequential took 11.700792 time units
+OpenMP took 1.790648 time units
+This resulted in a 6.534390x speed-up
+
+6.7j
+updates:
+combining 5th-6th loops
+no unrolling yet
+
+DOESNT WORK SCRAP IT
+
+6.7k
+updates:
+fixed on x y loop to be y x (missed it before)
+
+05
+Sequential took 26.740315 time units
+OpenMP took 2.530845 time units
+This resulted in a 10.565765x speed-up
+
+Sequential took 25.801064 time units
+OpenMP took 2.466220 time units
+This resulted in a 10.461785x speed-up
+
+
+6.7l
+updates:
+loop unrolled 5th loop
+
+05
+Sequential took 41.112487 time units
+OpenMP took 3.822794 time units
+This resulted in a 10.754565x speed-up
+
+Sequential took 26.650024 time units
+OpenMP took 2.817444 time units
+This resulted in a 9.458937x speed-up
+
+Sequential took 23.516216 time units
+OpenMP took 2.474408 time units
+This resulted in a 9.503775x speed-up
+
+Sequential took 25.325903 time units
+OpenMP took 2.474198 time units
+This resulted in a 10.236005x speed-up
+
+
+02 server
+Sequential took 19.471137 time units
+OpenMP took 2.196349 time units
+This resulted in a 8.865229x speed-up
+
+Sequential took 19.505701 time units
+OpenMP took 2.193014 time units
+This resulted in a 8.894472x speed-up
+
+Sequential took 19.614681 time units
+OpenMP took 2.199848 time units
+This resulted in a 8.916380x speed-up
+
+08 (lots of people running)
+Sequential took 11.884837 time units
+OpenMP took 2.167275 time units
+This resulted in a 5.483770x speed-up
+
+// 1-2 others running?
+Sequential took 10.813414 time units
+OpenMP took 1.764565 time units
+This resulted in a 6.128090x speed-up
+
+6.7m
+updates:
+more unrolling
+
+05
+Sequential took 22.270059 time units
+OpenMP took 2.478518 time units
+This resulted in a 8.985232x speed-up
+
+Sequential took 22.157596 time units
+OpenMP took 2.478870 time units
+This resulted in a 8.938587x speed-up
+
+Sequential took 29.078742 time units
+OpenMP took 3.146828 time units
+This resulted in a 9.240652x speed-up
+
+
+6.7n
+updates: unrolling continued
+
+05
+Sequential took 22.651713 time units
+OpenMP took 2.463114 time units
+This resulted in a 9.196372x speed-up
+
+Sequential took 22.639582 time units
+OpenMP took 2.465214 time units
+This resulted in a 9.183618x speed-up
+
+
+
+03
+Sequential took 26.099959 time units
+OpenMP took 3.132707 time units
+This resulted in a 8.331440x speed-up
+
+Sequential took 29.850645 time units
+OpenMP took 3.511680 time units
+This resulted in a 8.500389x speed-up
+
+
+6.7o
+updates:
+unrolled everything to 8 
+
+05
+Sequential took 27.951054 time units
+OpenMP took 2.467015 time units
+This resulted in a 11.329908x speed-up
+
+Sequential took 23.274006 time units
+OpenMP took 2.464043 time units
+This resulted in a 9.445455x speed-up
+
+Sequential took 23.054092 time units
+OpenMP took 2.472886 time units
+This resulted in a 9.322747x speed-up
+
+
+07
+Sequential took 11.695798 time units
+OpenMP took 1.612256 time units
+This resulted in a 7.254306x speed-up
+
+Sequential took 11.595330 time units
+OpenMP took 1.596267 time units
+This resulted in a 7.264029x speed-up
+
+Sequential took 11.474264 time units
+OpenMP took 1.602789 time units
+This resulted in a 7.158936x speed-up
+
+
+6.7p
+updates:
+unrolled last loop to 16 instead of just 8
+
+05
+Sequential took 22.463130 time units
+OpenMP took 2.476433 time units
+This resulted in a 9.070760x speed-up
+
+Sequential took 24.357152 time units
+OpenMP took 2.496781 time units
+This resulted in a 9.755422x speed-up
+
+Sequential took 25.190728 time units
+OpenMP took 2.469249 time units
+This resulted in a 10.201777x speed-up
+
+
+08
+Sequential took 12.486394 time units
+OpenMP took 1.852995 time units
+This resulted in a 6.738493x speed-up
+
+Sequential took 14.506736 time units
+OpenMP took 2.114764 time units
+This resulted in a 6.859742x speed-up
+
+
+09
+Sequential took 11.397801 time units
+OpenMP took 1.605430 time units
+This resulted in a 7.099532x speed-up
+
+
+
+6.7q
+updates
+started unrolling the even numbered loops
+
+05
+Sequential took 22.851638 time units
+OpenMP took 2.469920 time units
+This resulted in a 9.251975x speed-up
+
+Sequential took 22.858291 time units
+OpenMP took 2.474066 time units
+This resulted in a 9.239160x speed-up
+
+Sequential took 27.188753 time units
+OpenMP took 2.495936 time units
+This resulted in a 10.893209x speed-up
+
+Sequential took 24.181638 time units
+OpenMP took 2.572536 time units
+This resulted in a 9.399922x speed-up
+
+Sequential took 24.088263 time units
+OpenMP took 2.485421 time units
+This resulted in a 9.691824x speed-up
+
+
+6.7r
+updates
+more unrolling of even numbered loops
+
+05 (unsure if these are from this version but oh well)
+Sequential took 22.924096 time units
+OpenMP took 2.500758 time units
+This resulted in a 9.166859x speed-up
+
+
+6.7s
+updates:
+unrolling continued
+
+05 (wut help)
+Sequential took 40.492379 time units
+OpenMP took 2.447352 time units
+This resulted in a 16.545383x speed-up
+
+Sequential took 37.646812 time units
+OpenMP took 2.342973 time units
+This resulted in a 16.067966x speed-up
+
+Sequential took 23.279086 time units
+OpenMP took 2.897028 time units
+This resulted in a 8.035506x speed-up
+
+
+
+08 (with ppl)
+Sequential took 11.503712 time units
+OpenMP took 1.983357 time units
+This resulted in a 5.800122x speed-up
+
+Sequential took 11.127663 time units
+OpenMP took 1.663773 time units
+This resulted in a 6.688210x speed-up
+
+
+
+02
+Sequential took 19.564695 time units
+OpenMP took 2.197958 time units
+This resulted in a 8.901305x speed-up
+
+Sequential took 19.624229 time units
+OpenMP took 2.196209 time units
+This resulted in a 8.935502x speed-up
+
+Sequential took 19.589782 time units
+OpenMP took 2.197603 time units
+This resulted in a 8.914159x speed-up
+
+
+
+6.7t
+update: finished unrolling the one in s to 8
+
+05
+Sequential took 48.046542 time units
+OpenMP took 5.902178 time units
+This resulted in a 8.140476x speed-up
+
+Sequential took 27.004422 time units
+OpenMP took 2.879818 time units
+This resulted in a 9.377128x speed-up
+
+Sequential took 23.682292 time units
+OpenMP took 2.449068 time units
+This resulted in a 9.669920x speed-up
+
+
+
+08
+Sequential took 9.784446 time units
+OpenMP took 1.736393 time units
+This resulted in a 5.634926x speed-up
+
+Sequential took 14.095396 time units
+OpenMP took 2.128468 time units
+This resulted in a 6.622320x speed-up
+
+Sequential took 10.475891 time units
+OpenMP took 1.657347 time units
+This resulted in a 6.320879x speed-up
+
+
+
+02
+Sequential took 19.600775 time units
+OpenMP took 2.180743 time units
+This resulted in a 8.988118x speed-up
+
+Sequential took 24.936529 time units
+OpenMP took 2.251486 time units
+This resulted in a 11.075587x speed-up
+
+Sequential took 19.578777 time units
+OpenMP took 2.207160 time units
+This resulted in a 8.870574x speed-up
+
+Sequential took 19.549030 time units
+OpenMP took 2.188508 time units
+This resulted in a 8.932583x speed-up
+
+
+6.7u
+
+updates:
+loop unrolled last even one
+
+08
+Sequential took 11.084951 time units
+OpenMP took 1.789557 time units
+This resulted in a 6.194243x speed-up
+
+05
+Sequential took 22.875762 time units
+OpenMP took 2.408875 time units
+This resulted in a 9.496450x speed-up
+
+Sequential took 24.630148 time units
+OpenMP took 2.469374 time units
+This resulted in a 9.974248x speed-up
+
+Sequential took 24.162859 time units
+OpenMP took 2.388634 time units
+This resulted in a 10.115765x speed-up
+
+
+
+02
+Sequential took 21.587539 time units
+OpenMP took 2.210915 time units
+This resulted in a 9.764074x speed-up
+
+Sequential took 20.709891 time units
+OpenMP took 2.194388 time units
+This resulted in a 9.437661x speed-up
+
+
+
+6.7v
+update:
+omp pragma parallel for private (x)
+for first loop
+
+05
+Sequential took 22.887706 time units
+OpenMP took 2.580140 time units
+This resulted in a 8.870723x speed-up
+
+Sequential took 21.861451 time units
+OpenMP took 2.472777 time units
+This resulted in a 8.840850x speed-up
+
+Sequential took 21.849311 time units
+OpenMP took 2.464614 time units
+This resulted in a 8.865206x speed-up
+
+
+
+02 (what)
+Sequential took 20.743669 time units
+OpenMP took 44.691589 time units
+This resulted in a 0.464152x speed-up
+
+Sequential took 19.927646 time units
+OpenMP took 2.077089 time units
+This resulted in a 9.594026x speed-up
+
+Sequential took 19.738881 time units
+OpenMP took 7.712668 time units
+This resulted in a 2.559281x speed-up
+
+
+6.7w
+update:
+one more pragma
+
+05
+Sequential took 21.981796 time units
+OpenMP took 2.510298 time units
+This resulted in a 8.756648x speed-up
+
+Sequential took 21.704215 time units
+OpenMP took 2.517838 time units
+This resulted in a 8.620179x speed-up
+
+01
+Sequential took 24.127812 time units
+OpenMP took 2.635446 time units
+This resulted in a 9.155115x speed-up
+
+Sequential took 24.438452 time units
+OpenMP took 2.612084 time units
+This resulted in a 9.355921x speed-up
+
+Sequential took 24.442723 time units
+OpenMP took 2.617720 time units
+This resulted in a 9.337409x speed-up
+
+
+
+
+!!!!! BEGIN UNROLLING 16 !!!!!!!!
+
+1.
+
+update: unrolled to 16 for first 4 loops
+no pragmas
+
+07
+Sequential took 15.864901 time units
+OpenMP took 1.713940 time units
+This resulted in a 9.256392x speed-up
+
+Sequential took 11.614288 time units
+OpenMP took 1.718562 time units
+This resulted in a 6.758143x speed-up
+
+Sequential took 11.356892 time units
+OpenMP took 1.705309 time units
+This resulted in a 6.659727x speed-up
+
+Sequential took 11.347934 time units
+OpenMP took 1.680750 time units
+This resulted in a 6.751709x speed-up
+
+
+
+09
+Sequential took 11.541656 time units
+OpenMP took 1.716385 time units
+This resulted in a 6.724398x speed-up
+
+Sequential took 11.446937 time units
+OpenMP took 1.762198 time units
+This resulted in a 6.495829x speed-up
+
+Sequential took 12.771044 time units
+OpenMP took 1.717845 time units
+This resulted in a 7.434340x speed-up
+
+Sequential took 12.559563 time units
+OpenMP took 1.686561 time units
+This resulted in a 7.446848x speed-up
+
+
+
+05
+Sequential took 24.126566 time units
+OpenMP took 2.576474 time units
+This resulted in a 9.364180x speed-up
+
+08
+Sequential took 11.266869 time units
+OpenMP took 1.832331 time units
+This resulted in a 6.148927x speed-up
+
+Sequential took 11.240270 time units
+OpenMP took 2.071769 time units
+This resulted in a 5.425446x speed-up
+
+Sequential took 11.287263 time units
+OpenMP took 1.819900 time units
+This resulted in a 6.202134x speed-up
+
+
+
+2.
+
+Updates:
+pragma omp parallel on first loop
+
+08
+Sequential took 14.612291 time units
+OpenMP took 1.793767 time units
+This resulted in a 8.146148x speed-up
+
+Sequential took 10.534859 time units
+OpenMP took 1.648573 time units
+This resulted in a 6.390290x speed-up
+
+
+07
+Sequential took 11.707705 time units
+OpenMP took 1.523440 time units
+This resulted in a 7.685045x speed-up
+
+Sequential took 16.578343 time units
+OpenMP took 1.516069 time units
+This resulted in a 10.935084x speed-up
+
+Sequential took 11.515020 time units
+OpenMP took 1.480868 time units
+This resulted in a 7.775858x speed-up
+
+Sequential took 11.562975 time units
+OpenMP took 1.583370 time units
+This resulted in a 7.302763x speed-up
+
+
+3.
+updates:
+added 2nd pragma
+
+07
+Sequential took 16.147022 time units
+OpenMP took 1.545903 time units
+This resulted in a 10.445043x speed-up
+
+08
+Sequential took 14.218993 time units
+OpenMP took 1.845099 time units
+This resulted in a 7.706358x speed-up
+
+
+
+4.
+UPDATE: MORE PRAGMAS
+
+07
+Sequential took 17.188229 time units
+OpenMP took 1.584611 time units
+This resulted in a 10.846971x speed-up
+
+Sequential took 11.576232 time units
+OpenMP took 1.522964 time units
+This resulted in a 7.601120x speed-up
+
+
+08
+Sequential took 15.322136 time units
+OpenMP took 2.005817 time units
+This resulted in a 7.638850x speed-up
+
+Sequential took 14.018686 time units
+OpenMP took 2.166036 time units
+This resulted in a 6.472047x speed-up
+
+Sequential took 11.472894 time units
+OpenMP took 1.719122 time units
+This resulted in a 6.673694x speed-up
+

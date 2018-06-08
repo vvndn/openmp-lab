@@ -1,0 +1,21 @@
+old data set
+new optimizations
+
+4ompdeblur
+
+08
+Sequential took 14.780466 time units
+OpenMP took 1.492549 time units
+This resulted in a 9.902835x speed-up
+
+Sequential took 10.904263 time units
+OpenMP took 1.513536 time units
+This resulted in a 7.204495x speed-up
+
+Sequential took 10.611530 time units
+OpenMP took 1.531271 time units
+This resulted in a 6.929884x speed-up
+
+Sequential took 11.178680 time units
+OpenMP took 1.544910 time units
+This resulted in a 7.235813x speed-up
