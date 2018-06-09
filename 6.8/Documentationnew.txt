@@ -1,0 +1,56 @@
+Documentation
+
+Version: A new
+
+Version: B new
+used G old -> uncommented out gaussian blur
+
+08
+Sequential took 13.106760 time units
+OpenMP took 2.236732 time units
+This resulted in a 5.859781x speed-up
+
+Sequential took 11.752009 time units
+OpenMP took 1.482806 time units
+This resulted in a 7.925520x speed-up
+
+Sequential took 11.691994 time units
+OpenMP took 1.916206 time units
+This resulted in a 6.101637x speed-up
+
+
+Version: C new
+-> updated final
+
+Sequential took 10.952025 time units
+OpenMP took 1.294011 time units
+This resulted in a 8.463626x speed-up
+
+Sequential took 13.057287 time units
+OpenMP took 1.700245 time units
+This resulted in a 7.679650x speed-up
+
+Sequential took 14.425780 time units
+OpenMP took 1.398251 time units
+This resulted in a 10.317018x speed-up
+
+Sequential took 13.481440 time units
+OpenMP took 1.277376 time units
+This resulted in a 10.554010x speed-up
+
+Sequential took 13.741559 time units
+OpenMP took 1.704835 time units
+This resulted in a 8.060346x speed-up
+
+Sequential took 12.416266 time units
+OpenMP took 1.417788 time units
+This resulted in a 8.757491x speed-up
+
+Sequential took 12.171618 time units
+OpenMP took 1.494660 time units
+This resulted in a 8.143402x speed-up
+
+Sequential took 12.399509 time units
+OpenMP took 1.253153 time units
+This resulted in a 9.894649x speed-up
+

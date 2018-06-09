@@ -1,0 +1,150 @@
+Documentation
+
+Version: A old
+
+on 08 server:
+Sequential took 13.259813 time units
+OpenMP took 1.634416 time units
+This resulted in a 8.112875x speed-up
+
+
+Version: B old
+
+more loop unrolling
+
+on 08:
+Sequential took 12.714165 time units
+OpenMP took 1.470259 time units
+This resulted in a 8.647568x speed-up
+
+
+Version: C old
+
+more loop unrolling
+
+08:
+Sequential took 10.360178 time units
+OpenMP took 1.929968 time units
+This resulted in a 5.368057x speed-up
+
+Sequential took 10.591224 time units
+OpenMP took 1.579151 time units
+This resulted in a 6.706910x speed-up
+
+
+07:
+Sequential took 11.417697 time units
+OpenMP took 1.622478 time units
+This resulted in a 7.037197x speed-up
+
+Sequential took 13.628522 time units
+OpenMP took 2.787181 time units
+This resulted in a 4.889716x speed-up
+
+
+Version: D old
+commented out all except loop with equal assignments
+
+08:
+Sequential took 10.617297 time units
+OpenMP took 1.091247 time units
+This resulted in a 9.729508x speed-up
+
+Sequential took 9.743502 time units
+OpenMP took 1.053280 time units
+This resulted in a 9.250628x speed-up
+
+
+Version: E old
+more loop unrolling (everything is unrolled to 16)
+
+08
+Sequential took 11.890235 time units
+OpenMP took 1.131422 time units
+This resulted in a 10.509108x speed-up
+
+Sequential took 14.965944 time units
+OpenMP took 1.294056 time units
+This resulted in a 11.565144x speed-up
+
+Sequential took 12.772020 time units
+OpenMP took 1.407339 time units
+This resulted in a 9.075297x speed-up
+
+
+Version: F old
+loop unrolling deblur begin (2)
+
+08
+Sequential took 14.240339 time units
+OpenMP took 1.663451 time units
+This resulted in a 8.560720x speed-up
+
+Sequential took 11.009235 time units
+OpenMP took 1.202030 time units
+This resulted in a 9.158869x speed-up
+
+
+Version: G old
+still 2 loop unroll
+added parallel
+
+08
+Sequential took 13.389080 time units
+OpenMP took 1.324546 time units
+This resulted in a 10.108430x speed-up
+
+Sequential took 10.136733 time units
+OpenMP took 0.825088 time units
+This resulted in a 12.285639x speed-up
+
+Sequential took 14.186149 time units
+OpenMP took 0.977146 time units
+This resulted in a 14.517942x speed-up
+
+Sequential took 12.662985 time units
+OpenMP took 0.887367 time units
+This resulted in a 14.270290x speed-up
+
+Sequential took 12.611306 time units
+OpenMP took 0.842738 time units
+This resulted in a 14.964682x speed-up
+
+Sequential took 10.944801 time units
+OpenMP took 0.795510 time units
+This resulted in a 13.758220x speed-up
+
+
+
+Version: H old
+doesn't work
+
+Version: I old
+Sequential took 10.858867 time units
+OpenMP took 0.770115 time units
+This resulted in a 14.100319x speed-up
+
+Sequential took 12.691530 time units
+OpenMP took 0.735781 time units
+This resulted in a 17.249060x speed-up
+
+Sequential took 9.971400 time units
+OpenMP took 0.748037 time units
+This resulted in a 13.330090x speed-up
+
+Sequential took 9.918037 time units
+OpenMP took 0.732722 time units
+This resulted in a 13.535880x speed-up
+
+Sequential took 10.578134 time units
+OpenMP took 0.834154 time units
+This resulted in a 12.681273x speed-up
+
+Sequential took 11.152566 time units
+OpenMP took 0.729802 time units
+This resulted in a 15.281632x speed-up
+
+Sequential took 9.863316 time units
+OpenMP took 0.745376 time units
+This resulted in a 13.232672x speed-up
+
